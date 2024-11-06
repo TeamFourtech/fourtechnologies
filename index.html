@@ -86,7 +86,7 @@
 
     <div id="submissionMessage" style="display: none; color: green; margin-top: 15px;">
       Form submitted!
-  </div>
+    </div>
   </div>
 
 
@@ -97,16 +97,67 @@
 
   </main>
 
+
+
+  <footer class="footer">
+    <div class="footer_container">
+      <div class="company_footer">
+        <div class="footer_text">
+          <h3><img src="./src/images/logo.png" alt="">  Four Technologies</h3>
+          <p class="footer_para">Innovative Saas Empower Business driving Growth Agility and Seamless collaboration
+            Effectivilly</p>
+        </div>
+        <div class="sociallogo">
+         <a href="https://wa.me/919080372255?text=Hi%20Four%20Technologies"> <img class="whatsapp" src="./src/images/whatsapp.png"></a>
+         <a href="https://www.instagram.com/four_technologies/"> <img class="instagram" src="./src/images/instagram.png"></a>
+         <a href="https://www.linkedin.com/company/four-technologies/"> <img class="linkedin" src="./src/images/linkedin.png"></a>
+        </div>
+
+      </div>
+
+      <div class="company_links">
+        <h4>Company</h4>
+        <nav class="item"><a href="./index.html">Home</a></nav>
+        <nav class="item"><a href="#">Service</a></nav>
+        <nav class="item"><a href="#">IT Staffing</a></nav>
+        <nav class="item"><a href="#">About us</a></nav>
+        <nav class="item"><a href="#">Blog</a></nav>
+        <nav class="item"><a href="#">Contact</a></nav>
+
+      </div>
+
+      <div class="company_newsletter">
+        <h3>Our Newsletter</h3>
+        <p>Signup for our latest news & articles. We won’t send you spam mails.</p>
+        <form onclick=""> <!--as for now newsletter on hold -->
+          <label for="name">Name: <span class="important">*</span></label><br>
+          <input type="text" id="name" name="name" required><br><br>
+          <label for="email">Email: <span class="important">*</span></label><br>
+          <input type="email" id="email" name="email" required><br><br>
+          <button type="submit" class="submit-btn">
+            Subscribe
+            <div class="loader" id="loader"></div>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>@2024-2025 Four Technologies,All rights reserved.</p>
+    </div>
+
+  </footer>
+
   <!--For sending emails -->
 
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="text/javascript">
-      (function(){
-          emailjs.init("jUxTX0vLRos2YwVPB"); // Your EmailJS user ID
-      })();
+    (function () {
+      emailjs.init("jUxTX0vLRos2YwVPB"); // Your EmailJS user ID
+    })();
   </script>
-  
-  
+
+
 
 
   <script>
@@ -122,72 +173,91 @@
       document.getElementById('overlay').style.display = 'none';
     }
 
-    function submitForm(event) {
-        event.preventDefault();
-        
-        const nameInput = document.getElementById("name").value;
-        const emailInput = document.getElementById("email").value;
-        const phoneInput = document.getElementById("phone").value;
-        const serviceInput = document.getElementById("services").value;
-        const submitButton = document.querySelector(".submit-btn");
-        const loader = document.getElementById("loader");
-        const message = document.getElementById("submissionMessage");
+    async function submitForm(event) {
+      event.preventDefault();
 
-        // Validation checks
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const phonePattern = /^\d{10}$/;
+      const nameInput = document.getElementById("name").value;
+      const emailInput = document.getElementById("email").value;
+      const phoneInput = document.getElementById("phone").value;
+      const serviceInput = document.getElementById("services").value;
+      const submitButton = document.querySelector(".submit-btn");
+      const loader = document.getElementById("loader");
+      const message = document.getElementById("submissionMessage");
 
-        if (!emailPattern.test(emailInput)) {
-            alert("Please enter a valid email address.");
-            return;
-        }
+      // Validation checks
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const phonePattern = /^\d{10}$/;
 
-        if (!phonePattern.test(phoneInput)) {
-            alert("Please enter a valid 10-digit phone number.");
-            return;
-        }
+      if (!emailPattern.test(emailInput)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
 
-        // Disable the submit button and show the loader
-        submitButton.disabled = true;
-        loader.style.display = "inline-block";
+      if (!phonePattern.test(phoneInput)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return;
+      }
 
-        // Prepare email data
-        const templateParams = {
-            name: nameInput,
-            email: emailInput,
-            phone: phoneInput,
-            services: serviceInput,
-        };
+      // Disable the submit button and show the loader
+      submitButton.disabled = true;
+      loader.style.display = "inline-block";
 
-        // Send email using EmailJS
-        emailjs.send('service_gqzc16m', 'template_tpr0u9k', templateParams)
-            .then((response) => {
-                console.log('Email sent successfully!', response.status, response.text);
-            }, (error) => {
-                console.error('Failed to send email:', error);
-                alert("There was a problem sending your email.");
-            })
-            .finally(() => {
-                // Hide the loader and re-enable the submit button
-                loader.style.display = "none";
-                submitButton.disabled = false;
+      // Prepare data for Google Apps Script submission
+      const formData = new FormData();
+      formData.append("name", nameInput);
+      formData.append("email", emailInput);
+      formData.append("phone", phoneInput);
+      formData.append("services", serviceInput);
 
-                // Show the submission message
-                message.style.display = "block";
+      try {
+        // Submit data to Google Apps Script
+        const response = await fetch('https://script.google.com/macros/s/AKfycbzBTORG5Wwrq8VnqHsAo3c3c6zXv45UHDkNiJmJJyoseiusWdMR31RkTzt0csYc9M2RKQ/exec', {
+          method: 'POST',
+          body: new URLSearchParams(Object.fromEntries(formData.entries()))
+        });
+        const result = await response.json();
+        console.log('Google Apps Script response:', result);
+      } catch (error) {
+        console.error('Error sending data to Google Apps Script:', error);
+      }
 
-                // Reset the form
-                document.getElementById("enquiry_Form").reset();
+      // Prepare email data for EmailJS
+      const templateParams = {
+        name: nameInput,
+        email: emailInput,
+        phone: phoneInput,
+        services: serviceInput,
+      };
 
-                // Hide the message after a brief delay
-                setTimeout(() => {
-                    message.style.display = "none";
-                }, 3000);
-                
-                // Close the form (if applicable)
-                closeForm();
-            });
+      // Send email using EmailJS
+      emailjs.send('service_gqzc16m', 'template_tpr0u9k', templateParams)
+        .then((response) => {
+          console.log('Email sent successfully!', response.status, response.text);
+        }, (error) => {
+          console.error('Failed to send email:', error);
+          alert("There was a problem sending your email.");
+        })
+        .finally(() => {
+          // Hide the loader and re-enable the submit button
+          loader.style.display = "none";
+          submitButton.disabled = false;
+
+          // Show the submission message
+          message.style.display = "block";
+
+          // Reset the form
+          document.getElementById("enquiry_Form").reset();
+
+          // Hide the message after a brief delay
+          setTimeout(() => {
+            message.style.display = "none";
+          }, 3000);
+
+          // Close the form (if applicable)
+          closeForm();
+        });
     }
-    
+
 
 
 

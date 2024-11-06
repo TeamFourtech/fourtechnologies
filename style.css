@@ -258,7 +258,6 @@ input {
   cursor: pointer;
 }
 
-
 .loader {
   border: 4px solid #f3f3f3;
   border-radius: 50%;
@@ -270,8 +269,12 @@ input {
   margin-left: 10px;
 }
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 /* Styling for submit button */
 .submit-btn {
@@ -289,3 +292,63 @@ input {
   cursor: not-allowed;
 }
 
+/*footer design **/
+.footer {
+  background-color: #3e8fee;
+  padding: 10px;
+}
+
+.footer_text {
+  color: #fff;
+}
+
+.company_links,
+.company_links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.company_newsletter,
+.company_newsletter label {
+  color: #fff;
+}
+
+.copyright p {
+  color: #fff;
+}
+
+.footer_container {
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+}
+
+.footer_text img {
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+}
+
+.footer_text h3 {
+  font-size: 30px;
+}
+
+.sociallogo img {
+  height: 35px;
+}
+
+.sociallogo img:hover {
+  cursor: pointer;
+}
+
+.item {
+  text-decoration: none;
+}
+
+.company_links nav {
+  margin: 10px;
+}
+
+.copyright p {
+  text-align: center;
+}
