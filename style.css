@@ -1,0 +1,291 @@
+/* General Body Styling */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Section to wrap header and intro-actions with background color */
+.backround-section {
+  background-color: #3e8fee;
+  padding-top: 20px;
+}
+
+/* Header styling */
+.main-header {
+  padding: 10px 0;
+}
+
+.nav {
+  display: flex;
+  gap: 30px;
+  margin-left: 10%;
+  margin-right: 10%;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 5px 5%;
+}
+
+.logo {
+  margin-right: 2%;
+}
+
+.navitems {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navitems a {
+  text-decoration: none;
+  color: #777;
+  font-weight: 500;
+  padding: 10px 15px;
+}
+
+.navitems a:hover {
+  background-color: hsl(211, 100%, 94%);
+  color: #3e8fee;
+  border-radius: 20px;
+}
+
+.client-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.client-actions .login {
+  border: none;
+  color: #3e8fee;
+  background-color: transparent;
+  font-size: 16px;
+}
+
+.client-actions .signup {
+  background-color: #3e8fee;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-size: 16px;
+  border-radius: 35px;
+  cursor: pointer;
+}
+
+.client-actions .login:hover,
+.client-actions .signup:hover {
+  cursor: pointer;
+}
+
+/* Intro Actions Styling */
+.intro-actions {
+  text-align: center;
+  margin: 10%;
+  margin-bottom: 5%;
+}
+
+.paragraph h2 {
+  font-family: Roboto, sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: #fffafa;
+}
+
+.text p {
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #fffafa;
+}
+
+.btn {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
+.btn button {
+  display: flex;
+  align-items: center;
+  background-color: #fffafa;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 35px;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #3985de;
+  cursor: pointer;
+}
+
+.btn button img {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  /* Space between text and image */
+}
+
+/* Hover effect */
+.btn button:hover {
+  background-color: #f0f0f0;
+  /* Optional: change background color on hover */
+}
+
+/* Dashboard Styling */
+.dashboard {
+  margin-left: 10%;
+  overflow: hidden;
+  /* Hides overflow content (bottom part of the image) */
+  height: 500px;
+  /* Adjust this to control how much of the bottom is hidden */
+  background-color: transparent;
+}
+
+.dashboard_image {
+  width: 100%;
+  max-width: 1200px;
+  background-color: transparent;
+  border-radius: 8px 0px 0px 0px;
+  opacity: 1;
+}
+
+#enquiryForm {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 50px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+#enquiryForm h2 {
+  color: #3985de;
+  margin-top: 0%;
+  margin-left: 20%;
+}
+
+label {
+  color: #333;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 1rem;
+  color: #333;
+  appearance: none;
+  cursor: pointer;
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+
+.important {
+  color: red;
+}
+
+/* Dropdown container */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* Label styling */
+.form-group label {
+  color: #333;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* Dropdown styling */
+.form-group select {
+  width: 110%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 1rem;
+  color: #333;
+  appearance: none;
+  cursor: pointer;
+}
+
+/* Hover and focus states */
+.form-group select:hover {
+  border-color: #3985de;
+}
+
+.form-group select:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(57, 133, 222, 0.3);
+  border-color: #3985de;
+}
+
+/* Optional: Customize the dropdown options */
+.form-group select option {
+  padding: 10px;
+}
+
+.close_icon {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 10px;
+  right: 10px;
+}
+
+#enquiryForm img.close_icon:hover {
+  cursor: pointer;
+}
+
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 4px solid #3498db;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  display: none;
+  margin-left: 10px;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* Styling for submit button */
+.submit-btn {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+

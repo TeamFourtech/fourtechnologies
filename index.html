@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FourTech</title>
+  <link rel="stylesheet" href="./style.css" />
+
+</head>
+
+<body>
+  <div class="backround-section">
+    <header class="main-header">
+      <div class="nav">
+        <div class="logo">
+          <h4>FourTech</h4>
+        </div>
+        <div class="navitems">
+          <nav class="item"><a href="#">Home</a></nav>
+          <nav class="item"><a href="#">Service</a></nav>
+          <nav class="item"><a href="#">IT Staffing</a></nav>
+          <nav class="item"><a href="#">About us</a></nav>
+          <nav class="item"><a href="#">Blog</a></nav>
+          <nav class="item"><a href="#">Contact</a></nav>
+        </div>
+        <div class="client-actions">
+          <button class="login button" type="button">Login</button>
+          <button class="signup button" onclick="showForm()">Signup</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="intro-actions">
+      <div class="paragraph">
+        <h2>Elevate Your Business With Four Technologies</h2>
+      </div>
+      <div class="text">
+        <p>Our Transformative World of Software as a Solution Where innovation sparks growth and propels business
+          forward.</p>
+      </div>
+      <div class="btn">
+        <button id="enquiryform" onclick="showForm()">Get Started <img src="./src/images/Group 60.png"
+            alt="Get Started"></button>
+      </div>
+      <div class="dashboard">
+        <img class="dashboard_image" src="./src/images/dashboard.png" alt="Dashboard">
+      </div>
+    </section>
+
+  </div>
+
+  <!-- The Enquiry form to show -->
+
+  <div id="overlay" onclick="closeForm()"></div>
+
+
+  <div id="enquiryForm">
+    <img class="close_icon" src="./src/images/close.jpg" onclick="closeForm()">
+    <h2>Get Started</h2>
+    <form onsubmit="submitForm(event)" id="enquiry_Form">
+      <label for="name">Name: <span class="important">*</span></label><br>
+      <input type="text" id="name" name="name" required><br><br>
+      <label for="email">Email: <span class="important">*</span></label><br>
+      <input type="email" id="email" name="email" required><br><br>
+      <label for="phone">Phone number: <span class="important">*</span></label><br>
+      <input type="tel" id="phone" name="phone" required><br><br>
+      <div class="form-group">
+        <label for="services">Services offered: <span class="important">*</span></label><br>
+        <select id="services" name="services" required>
+          <option value="">Select a Service</option>
+          <option value="Website Development">Web Development</option>
+          <option value="App Development">App Development</option>
+          <option value="Software Development">Software Development</option>
+          <option value="SEO">SEO</option>
+          <option value="Digital Marketing">Digital Marketing</option>
+          <option value="IT Staffing">IT Staffing</option>
+        </select>
+      </div>
+      <br>
+      <button type="submit" class="submit-btn">
+        Submit
+        <div class="loader" id="loader"></div>
+      </button>
+    </form>
+
+    <div id="submissionMessage" style="display: none; color: green; margin-top: 15px;">
+      Form submitted!
+  </div>
+  </div>
+
+
+  <section class="client-section">
+
+  </section>
+
+
+  </main>
+
+  <!--For sending emails -->
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+      (function(){
+          emailjs.init("jUxTX0vLRos2YwVPB"); // Your EmailJS user ID
+      })();
+  </script>
+  
+  
+
+
+  <script>
+    // Show the form and overlay
+    function showForm() {
+      document.getElementById('enquiryForm').style.display = 'block';
+      document.getElementById('overlay').style.display = 'block';
+    }
+
+    // Close the form and overlay
+    function closeForm() {
+      document.getElementById('enquiryForm').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
+    }
+
+    function submitForm(event) {
+        event.preventDefault();
+        
+        const nameInput = document.getElementById("name").value;
+        const emailInput = document.getElementById("email").value;
+        const phoneInput = document.getElementById("phone").value;
+        const serviceInput = document.getElementById("services").value;
+        const submitButton = document.querySelector(".submit-btn");
+        const loader = document.getElementById("loader");
+        const message = document.getElementById("submissionMessage");
+
+        // Validation checks
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phonePattern = /^\d{10}$/;
+
+        if (!emailPattern.test(emailInput)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        if (!phonePattern.test(phoneInput)) {
+            alert("Please enter a valid 10-digit phone number.");
+            return;
+        }
+
+        // Disable the submit button and show the loader
+        submitButton.disabled = true;
+        loader.style.display = "inline-block";
+
+        // Prepare email data
+        const templateParams = {
+            name: nameInput,
+            email: emailInput,
+            phone: phoneInput,
+            services: serviceInput,
+        };
+
+        // Send email using EmailJS
+        emailjs.send('service_gqzc16m', 'template_tpr0u9k', templateParams)
+            .then((response) => {
+                console.log('Email sent successfully!', response.status, response.text);
+            }, (error) => {
+                console.error('Failed to send email:', error);
+                alert("There was a problem sending your email.");
+            })
+            .finally(() => {
+                // Hide the loader and re-enable the submit button
+                loader.style.display = "none";
+                submitButton.disabled = false;
+
+                // Show the submission message
+                message.style.display = "block";
+
+                // Reset the form
+                document.getElementById("enquiry_Form").reset();
+
+                // Hide the message after a brief delay
+                setTimeout(() => {
+                    message.style.display = "none";
+                }, 3000);
+                
+                // Close the form (if applicable)
+                closeForm();
+            });
+    }
+    
+
+
+
+
+
+
+  </script>
+
+
+</body>
+
+</html>
