@@ -1,3 +1,10 @@
+/* Prevent horizontal scrolling */
+html,
+body {
+  overflow-x: hidden;
+}
+
+
 .stat-header {
   display: inline-flex;
   align-items: center;
@@ -99,6 +106,11 @@ a {
   transform: translateX(-100%);
   transition: opacity 0.3s ease-in-out, transform 1s ease-in-out;
   /* Smooth transition */
+  display: block;
+  /* Default visibility */
+  width: 80px;
+  height: auto;
+
 }
 
 .arrow-visible img {
@@ -349,7 +361,7 @@ a {
 }
 
 
-#itstaffing_form h2 {
+#itstaffing_form_container h2 {
   font-family: Roboto;
   font-size: 25px;
   font-weight: 600;
@@ -358,8 +370,6 @@ a {
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: #3e8fee;
-
-
 }
 
 .name input {
@@ -456,12 +466,12 @@ a {
 
 
 .faq-section {
-  max-width: 1600px;
+  max-width: 800px;
   margin: 20px auto;
   font-family: Arial, sans-serif;
 }
 
-.faq-section h2{
+.faq-section h2 {
   text-align: center;
 }
 
@@ -486,7 +496,8 @@ a {
 
 .faq-header h3 {
   margin: 0;
-  flex-grow: 1; /* Make the heading take the available space */
+  flex-grow: 1;
+  /* Make the heading take the available space */
 }
 
 .toggle-btn {
@@ -499,7 +510,8 @@ a {
 }
 
 .toggle-btn.open {
-  transform: rotate(90deg); /* Rotate the arrow when open */
+  transform: rotate(90deg);
+  /* Rotate the arrow when open */
 }
 
 .faq-answer {
@@ -512,3 +524,162 @@ a {
   margin: 0;
 }
 
+.arrow-image img {
+  display: block;
+  /* Default visibility */
+  width: 80px;
+  height: auto;
+}
+
+
+/* General Responsive Styling */
+@media (max-width: 768px) {
+
+  .service-text h3 {
+    margin: 10px;
+
+  }
+
+  .service-text p {
+    margin: 10px;
+  }
+
+  .arrow-image img {
+    display: none;
+    /* Hide the arrow on mobile */
+  }
+
+  .step-image {
+    border-radius: 0;
+    border: 2px solid #fff;
+    padding: 40px;
+    width: fit-content;
+    margin-left: 25%;
+
+  }
+
+
+  .step-image img {
+    width: 100px;
+    /* Specify a visible width for mobile */
+    margin: 0 auto;
+    /* Center the image within its container */
+  }
+
+  .step-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .step-text h5 {
+    text-align: center;
+  }
+
+  .step-text p {
+    text-align: center;
+  }
+
+
+  .carousel-container {
+    width: 100%;
+    /* Full width for mobile */
+    overflow: hidden;
+    /* Prevent horizontal scrolling outside the carousel */
+  }
+
+  .carousel {
+    display: flex;
+    animation: scroll-mobile 15s linear infinite;
+    /* Faster animation for smaller screens */
+    align-items: center;
+  }
+
+  .carousel-item {
+    flex: 0 0 50%;
+    /* Show two items partially */
+    margin: 0 5px;
+    /* Adjust spacing */
+    text-align: center;
+    min-width: 120px;
+    max-width: 180px;
+  }
+
+  .carousel-item img {
+    width: 40px;
+    /* Smaller icons for mobile */
+    height: 40px;
+    margin-bottom: 8px;
+  }
+
+  .it-staffing h1 {
+    font-size: 1.5rem;
+    /* Adjust heading size */
+    margin-bottom: 10px;
+  }
+
+  .it-staffing p {
+    font-size: 1rem;
+    /* Smaller text */
+    margin-bottom: 20px;
+  }
+
+
+  .itstaffing-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+  }
+
+
+  .itstaffing-para h3 {
+    margin: 20px;
+    text-align: left;
+
+  }
+
+  .itstaffing-para p {
+    margin: 20px;
+    text-align: left;
+  }
+
+  #itstaffing_form form {
+    width: 100%;
+  }
+
+  #itstaffing_form .name {
+    display: block;
+
+  }
+
+  #itstaffing_form_container h2 {
+    text-align: center;
+  }
+
+
+  .name input {
+    width: 90%;
+
+  }
+
+  .hiring-details-form-group {
+    display: block;
+  }
+
+  .hiring_details input,select {
+    width: 90% !important; /* Make the inputs take full width on smaller screens */
+  }
+
+
+
+
+
+  @keyframes scroll-mobile {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
