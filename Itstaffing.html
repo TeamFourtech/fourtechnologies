@@ -330,8 +330,8 @@
 
 
                 <div id="itstaffing_form_container">
-                    <h2>Hire someone With An IT Staffing Service</h2>
-                    <form onsubmit="it_submission(event)" id="itstaffing_form">
+                    <h2 class="scroll-animation fade-in-up ">Hire someone With An IT Staffing Service</h2>
+                    <form onsubmit="it_submission(event)" id="itstaffing_form"  class="scroll-animation fade-in-up ">
                       <div class="name">
                         <input type="text" id="first_name" name="first_name" required placeholder="First name">
                         <input type="text" id="last_name" name="last_name" required placeholder="Last name">
@@ -348,7 +348,7 @@
                           <option value="Permanent">Permanent</option>
                         </select>
                       </div>
-                      <div class="hiring_details">
+                    <div class="hiring_details">
                         <div class="hiring-details-form-group">
                           <select id="number_of_openings" name="number_of_openings">
                             <option value="" disabled selected>No of Openings</option>
@@ -359,7 +359,7 @@
                           </select>
                         </div>
                         <input type="text" id="location" required placeholder="Location" name="job_location">
-                      </div>
+                    </div>
                       <textarea id="job_description" name="job_description" rows="6" cols="50" placeholder="Enter the job description here" required></textarea>
                       <button type="submit" id="itstaffing_submit">Submit</button>
                     </form>
