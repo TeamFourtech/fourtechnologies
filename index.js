@@ -302,12 +302,15 @@ async function it_submission(event) {
   const submitButton = document.getElementById("itstaffing_submit");
   const loader = document.getElementById("form_loader");
   const message = document.getElementById("form_submissionMessage");
+  
 
   // Phone validation (if provided)
   if (phone && !/^\+?[1-9]\d{1,14}$/.test(phone)) {
     alert("Please enter a valid international phone number (e.g., +1234567890).");
     return;
   }
+
+
 
   // Disable the submit button and show the loader
   submitButton.disabled = true;
@@ -357,6 +360,8 @@ async function it_submission(event) {
   emailjs.send('service_fq8qyb9', 'template_366j0ze', templateParams)
     .then((response) => {
       console.log('Email sent successfully!', response.status, response.text);
+      alert("Thank you for your submission!");
+
     }, (error) => {
       console.error('Failed to send email:', error);
       alert("There was a problem sending your email.");
@@ -404,5 +409,100 @@ function toggleAnswer(index) {
       button.classList.add("open"); // Rotate the arrow
   }
 }
+
+
+async function contact_form_submission(event) {
+  event.preventDefault();  // Prevent form from submitting the default way
+
+  console.log("Form submission started.");
+
+  // Fetch input values
+  const name = document.getElementById("contact_name").value.trim();
+  const email = document.getElementById("contact_email").value.trim();
+  const phone = document.getElementById("contact_phone").value.trim();
+  const message = document.getElementById("message").value.trim();
+  const submitButton = document.getElementById("submitBtn");
+  const loader = document.getElementById("form_loader");
+  const successMessage = document.getElementById("form_submissionMessage");
+
+  // Phone number validation (if provided)
+  if (phone && !/^\+?[1-9]\d{1,14}$/.test(phone)) {
+    alert("Please enter a valid international phone number (e.g., +1234567890).");
+    return;
+  }
+
+  // Disable the submit button and show the loader
+  submitButton.disabled = true;
+  if (loader) {
+    loader.style.display = "inline-block";  // Show the loader
+  }
+
+  // Prepare data for Google Apps Script submission
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("email", email);
+  formData.append("phone", phone);
+  formData.append("message", message);
+
+  try {
+    // Submit data to Google Apps Script
+    const response = await fetch('https://script.google.com/macros/s/AKfycbwFE0jBOulBc1AB6U_Pjj7B7Bh2aHBw0CAd4F0FWdZyo_b46YeWzH3I_ZYmOocCDbBU1A/exec', {
+      method: 'POST',
+      body: new URLSearchParams(Object.fromEntries(formData.entries())),
+    });
+    const result = await response.json();
+    console.log('Google Apps Script response:', result);
+  } catch (error) {
+    console.error('Error sending data to Google Apps Script:', error);
+  }
+
+  // Prepare email data for EmailJS
+  const templateParams = {
+    name: name,       // Corresponds to 'name' column in Google Sheets
+    email: email,     // Corresponds to 'email' column in Google Sheets
+    phone: phone,     // Corresponds to 'phone' column in Google Sheets
+    message: message  // Corresponds to 'message' column in Google Sheets
+  };
+
+  console.log(templateParams);  // Check if email and message are populated correctly
+
+
+  emailjs.send('service_keeg7nd', 'template_cme4cnf', templateParams)
+    .then((response) => {
+      console.log('Email sent successfully!', response.status, response.text);
+      alert("Thank you for your message! We'll get back to you shortly.");
+    }, (error) => {
+      console.error('Failed to send email:', error);
+      alert("There was a problem sending your message.");
+    })
+    .finally(() => {
+      // Hide loader, show success message, and re-enable the submit button
+      if (loader) {
+        loader.style.display = "none";  // Hide loader
+      }
+      submitButton.disabled = false;
+
+      // Show success message
+      if (successMessage) {
+        successMessage.style.display = "block";  // Show success message
+      }
+
+      // Reset the form after submission
+      const form = document.getElementById("contactForm");
+      if (form) {
+        form.reset();  // Reset form
+      }
+
+      // Hide the success message after 3 seconds
+      setTimeout(() => {
+        if (successMessage) {
+          successMessage.style.display = "none";  // Hide success message
+        }
+      }, 3000);
+    });
+}
+
+
+
 
 
