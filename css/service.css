@@ -194,8 +194,8 @@
   justify-content: center; 
   align-items: center;    
   height: 100%;  
-
 }
+
 .contact-button button {
   color: #fffafa;
   border: none;
@@ -207,6 +207,15 @@
   cursor: pointer;
   margin-bottom: 35px;
 }
+
+.contact-button a {
+  text-decoration: none;
+}
+
+.contact-button button a {
+  background-color: transparent;
+}
+
 
 
 /* @media screen and (max-width: 768px) {

@@ -504,5 +504,18 @@ async function contact_form_submission(event) {
 
 
 
+window.addEventListener('load', function () {
+  // Show the loader initially
+  document.getElementById('ft-loader').style.display = 'flex';
+  
+  // Set a timeout for 3 seconds (3000 milliseconds)
+  setTimeout(function () {
+      // Hide the loader after 3 seconds
+      document.getElementById('ft-loader').style.opacity = 0;
+      document.getElementById('ft-loader').style.visibility = 'hidden';
+  }, 1000); // 3000ms = 3 seconds
+});
+
+
 
 
