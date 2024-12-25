@@ -88,6 +88,19 @@ body {
   border-radius: 20px;
 }
 
+.logo img {
+  max-width: 150px; /* Adjust the width according to the desired size */
+  height: auto;     /* Maintain aspect ratio */
+}
+
+/* Adjust the padding or margins if needed */
+.nav .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2%;
+}
+
 .client-actions {
   display: flex;
   gap: 10px;
@@ -412,9 +425,9 @@ body {
 }
 
 .footer_text img {
-  width: 25px;
-  height: 25px;
-  background-color: transparent;
+  width: 250px;  /* Adjust size as needed */
+  height: 100px; /* Keep aspect ratio intact */
+  margin-right: 10px; /* Spacing between logo and name */
 }
 
 .footer_text h3 {

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./css/itstaffing.css">
     <link rel="stylesheet" href="./css/about-us.css" />
     <script src="./index.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="./src/images/favicon.ico"> <!-- For .ico format -->
+
 
 </head>
 
@@ -22,7 +24,7 @@
     <header class="main-header">
         <div class="nav">
             <div class="logo">
-                <h4>FourTech</h4>
+                <a href="./index.html"><img src="./src/images/fourtech-logo.png" alt="FourTech Logo" class="logo-img"  draggable="false"/></a>
             </div>
             <button class="hamburger-menu" onclick="toggleMenu()">
                 <span></span>
@@ -93,19 +95,19 @@
             </div>
         </div>
 
-        <section class="about-us">
+        <section class="about-us scroll-animation fade-in-up">
             <div class="about-div">
                 <h3>About Us</h3>
             </div>
         </section>
 
-        <section class="our-mission">
+        <section class="our-mission scroll-animation fade-in-up">
             <div class="mission-container">
                 <div class="mission-img">
-                    <img src="./src/images/mission.jpeg" alt="Mission">¯
+                    <img src="./src/images/mission.jpeg" alt="Mission">
                 </div>
 
-                <div class="mission-description">
+                <div class="mission-description scroll-animation fade-in-up">
                     <h3>Our History and Mission</h3>
                     <p>
                         At Four Technologies, we are driven by a simple yet
@@ -219,8 +221,7 @@
         <div class="footer_container scroll-animation fade-in-up">
             <div class="company_footer">
                 <div class="footer_text">
-                    <h3><img src="./src/images/logo.png" alt> Four
-                        Technologies</h3>
+                    <img src="./src/images/fourtech-logo-white.png" alt="Four Technologies Logo" class="footer-logo-img" draggable="false">
                     <p class="footer_para">Innovative Saas Empower
                         Business
                         driving Growth Agility and Seamless
