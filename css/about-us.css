@@ -1,0 +1,431 @@
+.about-div h3 {
+  font-family: Roboto;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 42.19px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #3e8fee;
+}
+
+.mission-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10%;
+}
+
+.mission-container img {
+  width: 612px;
+  height: 383px;
+  border-radius: 20px 0px 0px 0px;
+  opacity: 0px;
+  margin-left: 10%;
+}
+
+.mission-container p {
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 400;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #3e8fee;
+}
+
+.mission-description h3 {
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 37.5px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+/* Timeline Section */
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+}
+
+/* Milestone Positioning */
+.milestone {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.milestone:hover .card {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  background-color: #f8f8f8;
+}
+
+/* Timeline Section */
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+}
+
+/* Milestone Positioning */
+.milestone {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+/* Cards Styling */
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.milestone:hover .card {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  background-color: #f8f8f8;
+}
+
+/* Central Timeline Line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 5px;
+  height: 100%;
+  background: #3e8fee;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+/* Curved Path Between Cards - Adjust for smooth connection */
+.milestone.left + .milestone.right::before,
+.milestone.right + .milestone.left::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  height: 5px;
+  background: #3e8fee;
+  z-index: -1;
+}
+
+/* Add smooth curve to the path between cards */
+.milestone.left + .milestone.right::before {
+  left: 0;
+  transform: translateY(-50%) cubic-bezier(0.42, 0, 0.58, 1); /* Smooth curve */
+}
+
+.milestone.right + .milestone.left::before {
+  right: 0;
+  transform: translateY(-50%) cubic-bezier(0.42, 0, 0.58, 1); /* Smooth curve */
+}
+
+/* Optional curved lines between central timeline and each card */
+.milestone.left::after,
+.milestone.right::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 5px;
+  background-color: #3e8fee;
+  z-index: -1;
+}
+
+/* Styling for the cards */
+.milestone .card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.milestone:hover .card {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  background-color: #f8f8f8;
+}
+
+/* Default Style for Card Titles */
+.card-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+  padding: 5px;
+  border-radius: 3px;
+}
+
+/* Highlighter Effect */
+.card-title.highlighted {
+  color: #fff; /* White text */
+  background-color: #0d6efd; /* Blue background */
+}
+
+.our-journey {
+  text-align: center;
+  font-family: Roboto;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 42.19px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #3e8fee;
+  
+}
+
+
+.our-para {
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 400;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  text-align: center;
+}
+
+/* Style for the Meet the Team Section */
+.meet-the-team {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+}
+
+/* Header Styling */
+.meet-the-team h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #3e8fee;
+}
+
+.meet-the-team p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Flexbox layout for the team members */
+.team-members {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40px;
+    /* flex-wrap: wrap; */
+}
+
+/* Styling for each team member */
+.team-member {
+    text-align: center;
+    width: 30%;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+/* Name and Role Styling */
+.team-member h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.team-member p {
+    font-size: 1.1em;
+    color: #777;
+}
+
+/* Hover Effect for Team Members */
+.team-member:hover {
+    transform: translateY(-10px); /* Adds hover effect to lift the card */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+@media (max-width: 768px) {
+    /* Our Mission Section */
+    .our-mission {
+      padding: 30px 15px;
+    }
+  
+    .our-mission h3 {
+      font-size: 28px;
+      line-height: 36px;
+      text-align: center;
+    }
+  
+    .mission-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .mission-container img {
+      width: 100%;
+      height: auto;
+      margin-left: 0;
+      opacity: 1;
+      border-radius: 20px;
+    }
+  
+    .mission-description p {
+      font-size: 16px;
+      text-align: center;
+    }
+  
+    /* Our Journey Section */
+    .our-journey {
+      font-size: 28px;
+      line-height: 36px;
+      text-align: center;
+    }
+  
+    .our-para {
+      font-size: 18px;
+      text-align: center;
+    }
+  
+    .timeline {
+      padding: 30px 0;
+      gap: 30px;
+    }
+  
+    .milestone {
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    .milestone.left,
+    .milestone.right {
+      justify-content: center;
+    }
+  
+    .card {
+      width: 100%;
+      margin: 10px 0;
+    }
+  
+    .timeline::before {
+      width: 3px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  
+    .milestone.left + .milestone.right::before,
+    .milestone.right + .milestone.left::before {
+      width: 100%;
+      left: 0;
+      right: 0;
+      height: 3px;
+    }
+  
+    .milestone.left::after,
+    .milestone.right::after {
+      width: 0;
+    }
+  
+    /* Meet the Team Section */
+    .meet-the-team {
+      padding: 30px 15px;
+    }
+  
+    .meet-the-team h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+  
+    .meet-the-team p {
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+  
+    .team-members {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      margin-top: 20px;
+    }
+  
+    .team-member {
+      width: 80%;
+      padding: 15px;
+      margin: 0;
+    }
+  
+    .team-member img {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 15px;
+    }
+  
+    .team-member h3 {
+      font-size: 1.3em;
+      margin-bottom: 8px;
+    }
+  
+    .team-member p {
+      font-size: 1em;
+    }
+  }
+  

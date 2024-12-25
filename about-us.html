@@ -2,19 +2,18 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us </title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/service.css" />
-    <link rel="stylesheet" href="./css/contact.css">
-
-
+    <link rel="stylesheet" href="./css/itstaffing.css">
+    <link rel="stylesheet" href="./css/about-us.css" />
     <script src="./index.js" defer></script>
 
 </head>
 
-<body>
+<body id="body">
     <div id="ft-loader">
         <div class="loader-logo"><i>ft</i></div>
         <div class="loader-spinner"></div>
@@ -34,8 +33,10 @@
                 <div class="navitems">
                     <nav class="item"><a href="./index.html">Home</a></nav>
                     <nav class="item"><a href="./service.html">Service</a></nav>
-                    <nav class="item"><a href="./Itstaffing.html">IT Staffing</a></nav>
-                    <nav class="item"><a href="./about-us.html">About us</a></nav>
+                    <nav class="item"><a href="./Itstaffing.html">IT
+                            Staffing</a></nav>
+                    <nav class="item"><a href="./about-us.html">About
+                            us</a></nav>
                     <nav class="item"><a href="./blog.html">Blog</a></nav>
                     <nav class="item"><a href="./contact.html">Contact</a></nav>
                 </div>
@@ -48,10 +49,10 @@
     </header>
 
     <main>
+
         <!-- The Enquiry form to show -->
 
         <div id="overlay" onclick="closeForm()"></div>
-
 
         <div id="enquiryForm">
             <img class="close_icon" src="./src/images/close.jpg" onclick="closeForm()">
@@ -66,12 +67,17 @@
                 <div class="form-group">
                     <label for="services">Service Intrested: <span class="important">*</span></label><br>
                     <select id="services" name="services" required>
-                        <option value="" disabled selected>Select a Service</option>
-                        <option value="Website Development">Web Development</option>
-                        <option value="App Development">App Development</option>
-                        <option value="Software Development">Software Development</option>
+                        <option value disabled selected>Select a
+                            Service</option>
+                        <option value="Website Development">Web
+                            Development</option>
+                        <option value="App Development">App
+                            Development</option>
+                        <option value="Software Development">Software
+                            Development</option>
                         <option value="SEO">SEO</option>
-                        <option value="Digital Marketing">Digital Marketing</option>
+                        <option value="Digital Marketing">Digital
+                            Marketing</option>
                         <option value="IT Staffing">IT Staffing</option>
                     </select>
                 </div>
@@ -87,46 +93,127 @@
             </div>
         </div>
 
-        <section class="contact-section">
-            <div class="contact-container">
-                <div class="contact-text-container">
-                    <h3 class="scroll-animation fade-in-up">Contact Us</h3>
-                    <p lass="scroll-animation fade-in-up">Have questions or want to learn more? Let's start a conversation</p>
-                    <p lass="scroll-animation fade-in-up">Write to us at <a href="mailto:info@fourtechnologies.in">info@fourtechnologies.in</a></p>
+        <section class="about-us">
+            <div class="about-div">
+                <h3>About Us</h3>
+            </div>
+        </section>
+
+        <section class="our-mission">
+            <div class="mission-container">
+                <div class="mission-img">
+                    <img src="./src/images/mission.jpeg" alt="Mission">¯
                 </div>
-        
-                <div class="contact-form">
-                    <h2 class="contact-title scroll-animation fade-in-up ">Get in Touch</h2>
-                    <p class="contact-description scroll-animation fade-in-up">
-                        Fill out the form below and we'll get back to you as soon as possible.
+
+                <div class="mission-description">
+                    <h3>Our History and Mission</h3>
+                    <p>
+                        At Four Technologies, we are driven by a simple yet
+                        powerful vision: to empower businesses with
+                        innovative IT SaaS and staffing solutions that meet
+                        modern challenges head-on.<br><br>
+
+                        Founded by Giridharan, Rama Subramanian, and Priya
+                        Dharshini, our journey as a startup began with a
+                        shared passion for technology and a commitment to
+                        excellence. While we may be new to the industry, our
+                        fresh perspective and unwavering dedication set us
+                        apart.<br>
+
+                        We specialize in delivering cutting-edge software
+                        solutions and connecting businesses with top IT
+                        talent to meet their unique needs. Our approach is
+                        customer-centric, ensuring that every service we
+                        provide is tailored to help our clients succeed in a
+                        competitive landscape.<br><br>
+
+                        At Four Technologies, we value transparency,
+                        collaboration, and growth. Together, let's build a
+                        future where technology drives progress and
+                        possibilities.
+
                     </p>
-                    
-                    <form method="POST" id="contactForm" onsubmit="contact_form_submission(event)" class="scroll-animation fade-in-up">
-                        <label for="name">Your Name:</label>
-                        <input type="text" id="contact_name" name="name" placeholder="Enter your name" required>
-        
-                        <label for="contact_email">Your Email:</label>
-                        <input type="email" id="contact_email" name="email" placeholder="Enter your email" required>
-        
-                        <label for="contact_phone">Your Phone:</label>
-                        <input type="tel" id="contact_phone" name="phone" placeholder="Enter your phone number" required>
-        
-                        <label for="message">Your Message:</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
-        
-                        <button type="submit" id="submitBtn">Send Message
-                        </button>
-
-                        <div id="form_loader" style="display: none; color:#3498db;">Loading...</div>
-
-                    </form>
                 </div>
             </div>
         </section>
-        
+
+        <section>
+            <h2 class="our-journey">Our Journey</h2>
+            <p class="our-para">At Four Technologies, we are at the
+                beginning of an exciting adventure. <br>While we are new to
+                the industry, our passion for innovation, adaptability, and
+                a customer-first mindset fuels our drive to make an
+                impact.</p>
+
+            <div class="timeline">
+                <div class="milestone left scroll-animation fade-in-up">
+                    <div class="card">
+                        <h3 class="card-title">2020 - The Beginning</h3>
+                        <p>Four Technologies was founded with a vision to
+                            provide innovative IT SaaS and staffing
+                            solutions. As a dynamic startup, we bring fresh
+                            perspectives and a strong commitment to
+                            delivering exceptional value to our clients.</p>
+                    </div>
+                </div>
+
+                <div class="milestone right scroll-animation fade-in-up">
+                    <div class="card">
+                        <h3 class="card-title">2025 - Looking Ahead</h3>
+                        <p>Our journey continues as we focus on growth,
+                            building strong client relationships, and
+                            expanding into new markets.</p>
+                    </div>
+                </div>
+
+                <div class="milestone left scroll-animation fade-in-up">
+                    <div class="card">
+                        <h3 class="card-title">2028 - Expansion</h3>
+                        <p>We expand our services and grow our client base,
+                            exploring new markets and industries while
+                            continuing to innovate.</p>
+                    </div>
+                </div>
+
+                <div class="milestone right scroll-animation fade-in-up">
+                    <div class="card">
+                        <h3 class="card-title">2030 - Global Reach</h3>
+                        <p>Four Technologies becomes a key player in the
+                            global IT services and staffing industry,
+                            impacting businesses worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="meet-the-team">
+            <h2>Meet the Team</h2>
+            <p>Our team is made up of passionate individuals dedicated to
+                delivering exceptional solutions to our clients.</p>
+
+            <div class="team-members scroll-animation fade-in-up">
+                <div class="team-member">
+                    <img src="./src/images/founder-1.png" alt="Giridharan" class="scroll-animation fade-in-up">
+                    <h3>Giridharan</h3>
+                    <p>Co-Founder & CEO</p>
+                </div>
+
+                <div class="team-member scroll-animation fade-in-up">
+                    <img src="./src/images/founder-2.jpg" alt="Rama Subramanian" class="scroll-animation fade-in-up">
+                    <h3>Rama Subramanian</h3>
+                    <p>Co-Founder & CTO</p>
+                </div>
+
+                <div class="team-member scroll-animation fade-in-up">
+                    <img src="./src/images/founder-3.png" alt="Priya Dharshini" class="scroll-animation fade-in-up">
+                    <h3>Priya Dharshini</h3>
+                    <p>Co-Founder & COO & Head of Human Sources</p>
+                </div>
+            </div>
+
+        </section>
 
     </main>
-
 
     <footer class="footer">
         <div class="footer_container scroll-animation fade-in-up">
@@ -169,8 +256,10 @@
                 <h4>Company</h4>
                 <nav class="item"><a href="./index.html">Home</a></nav>
                 <nav class="item"><a href="./service.html">Service</a></nav>
-                <nav class="item"><a href="./Itstaffing.html">IT Staffing</a></nav>
-                <nav class="item"><a href="./about-us.html">About us</a></nav>
+                <nav class="item"><a href="./Itstaffing.html">IT
+                        Staffing</a></nav>
+                <nav class="item"><a href="./about-us.html">About
+                        us</a></nav>
                 <nav class="item"><a href="./blog.html">Blog</a></nav>
                 <nav class="item"><a href="./contact.html">Contact</a></nav>
 
@@ -200,14 +289,12 @@
 
     </footer>
 
+    <!--For sending emails -->
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
-      (function () {
-        emailjs.init("ShDbF1WlnMQ7zg_RN"); // Your EmailJS user ID ramfourtech@gmail.com
-      })();
+        (function () {
+            emailjs.init("jUxTX0vLRos2YwVPB"); // Your EmailJS user ID
+        })();
     </script>
-
 </body>
-
-</html>

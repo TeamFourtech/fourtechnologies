@@ -30,10 +30,8 @@ async function submitForm(event) {
     return;
   }
 
-  if (!phonePattern.test(phoneInput)) {
-    alert("Please enter a valid 10-digit phone number.");
-    return;
-  }
+
+
 
   // Disable the submit button and show the loader
   submitButton.disabled = true;
@@ -513,8 +511,12 @@ window.addEventListener('load', function () {
       // Hide the loader after 3 seconds
       document.getElementById('ft-loader').style.opacity = 0;
       document.getElementById('ft-loader').style.visibility = 'hidden';
-  }, 1000); // 3000ms = 3 seconds
+  }, 500); // 3000ms = 3 seconds
 });
+
+
+
+
 
 
 
