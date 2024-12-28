@@ -78,15 +78,15 @@
     margin-bottom: 20px;
 }
 
-form label {
+#contactForm label {
     font-size: 1rem;
     margin-bottom: 8px;
     display: block;
     color: #333;
 }
 
-form input,
-form textarea {
+#contactForm input,
+#contactForm textarea {
     width: 90%;
     padding: 12px;
     margin-bottom: 15px;
@@ -95,7 +95,7 @@ form textarea {
     font-size: 1rem;
 }
 
-form button {
+#contactForm button {
     background-color: #007BFF;
     color: white;
     padding: 12px 20px;
@@ -106,6 +106,6 @@ form button {
     transition: background-color 0.3s ease;
 }
 
-form button:hover {
+#contactForm button:hover {
     background-color: #0056b3;
 }

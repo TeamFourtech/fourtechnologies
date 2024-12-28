@@ -517,6 +517,11 @@ window.addEventListener('load', function () {
 
 
 
+function toggleDetails(button) {
+  const teamMember = button.closest('.team-member');
+  teamMember.classList.toggle('expanded');
+  button.textContent = teamMember.classList.contains('expanded') ? 'View Less' : 'View More';
+}
 
 
 

@@ -18,6 +18,7 @@ body {
     opacity: 0;
     transform: translateY(50px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -29,6 +30,7 @@ body {
     opacity: 0;
     transform: translateY(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -40,6 +42,7 @@ body {
     opacity: 0;
     transform: translateX(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -76,10 +79,12 @@ body {
 }
 
 .navitems a {
+  font-family: 'Roboto', sans-serif;
   text-decoration: none;
   color: #777;
   font-weight: 500;
   padding: 10px 15px;
+
 }
 
 .navitems a:hover {
@@ -89,8 +94,10 @@ body {
 }
 
 .logo img {
-  max-width: 150px; /* Adjust the width according to the desired size */
-  height: auto;     /* Maintain aspect ratio */
+  max-width: 150px;
+  /* Adjust the width according to the desired size */
+  height: auto;
+  /* Maintain aspect ratio */
 }
 
 /* Adjust the padding or margins if needed */
@@ -107,7 +114,7 @@ body {
   flex-wrap: wrap;
 }
 
-.client-actions .login  {
+.client-actions .login {
   border: none;
   background-color: transparent;
 }
@@ -240,17 +247,21 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
-  padding: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
   border: 1px solid #ddd;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1050; /* Higher than header and other content */
+  z-index: 1050;
+  /* Higher than header and other content */
 }
 
 #enquiryForm h2 {
   color: #3985de;
   margin-top: 0%;
-  margin-left: 20%;
+  text-align: center;
 }
 
 #enquiry_Form label {
@@ -425,15 +436,18 @@ body {
 }
 
 .footer_text img {
-  width: 250px;  /* Adjust size as needed */
-  height: 100px; /* Keep aspect ratio intact */
-  margin-right: 10px; /* Spacing between logo and name */
+  width: 250px;
+  /* Adjust size as needed */
+  height: 100px;
+  /* Keep aspect ratio intact */
+  margin-right: 10px;
+  /* Spacing between logo and name */
 }
 
 .footer_text h3 {
   font-size: 35px;
-  
-  
+
+
 }
 
 .sociallogo img {
@@ -538,7 +552,7 @@ body {
   text-decoration-skip-ink: none;
   color: #007bff;
   animation: fadeInDown 3s ease-in-out;
-  
+
 
 
 }
@@ -555,7 +569,7 @@ body {
   animation: fadeInLeft 3s ease-in-out;
 
 
-  
+
 }
 
 .service-cards {
@@ -788,7 +802,8 @@ body {
 /* Scroll Animation Classes */
 .scroll-animation {
   opacity: 0;
-  transform: translateY(50px); /* Default for fade-in-up */
+  transform: translateY(50px);
+  /* Default for fade-in-up */
   transition: opacity 0.6s ease, transform 0.6s ease;
   will-change: opacity, transform;
 }
@@ -828,103 +843,114 @@ body {
 
 
 
-/* 13 to 14 inch laptops*/
+/* Specific styling for 13 to 14-inch laptops */
 @media only screen and (max-width: 1280px) and (max-height: 720px) {
   .footer_para {
     font-size: 15px;
     font-weight: 500;
   }
+
+  .logo img {
+    max-width: 130px;
+  }
+
+  .navitems {
+    gap: 1px;
+  }
 }
+
 
 @media screen and (max-width: 768px) {
 
-    .main-header {
-      padding: 0;
-    }
-  
-    .nav {
-      display: flex;
-      gap: 30px;
-      margin: 0 5%;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #fff;
-      border-radius: 25px;
-    }
-  
-    #enquiryForm {
-      width: 70%;
-    }
-  
-    .menu-container {
-      display: none;
-      flex-direction: column;
-      background-color: #fff;
-      top: 60px;
-      right: 40px;
-      position: absolute;
-      width: fit-content;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      padding: 10px 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      z-index: 1000; /* Ensures it's on top */
-    }
-  
-    .menu-container.active {
-      display: flex;
-    }
-  
-    .nav {
-      flex-wrap: nowrap;
-      position: relative;
-    }
-  
-    .navitems {
-      flex-direction: column;
-      align-items: center;
-      gap: 15px; /* Add spacing between menu items */
-    }
-  
-    .client-actions {
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-  
-    .hamburger-menu {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-    }
-  
-    .hamburger-menu span {
-      display: block;
-      width: 25px;
-      height: 3px;
-      background-color: #333;
-      border-radius: 2px;
-      transition: transform 0.3s, opacity 0.3s;
-    }
-  
-    /* Active state for hamburger menu */
-    .hamburger-menu.active span:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
-  
-    .hamburger-menu.active span:nth-child(2) {
-      opacity: 0;
-    }
-  
-    .hamburger-menu.active span:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
-    }
-  
-  
+  .main-header {
+    padding: 0;
+  }
+
+  .nav {
+    display: flex;
+    gap: 30px;
+    margin: 0 5%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 25px;
+  }
+
+  #enquiryForm {
+    width: 70%;
+  }
+
+  .menu-container {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    top: 60px;
+    right: 40px;
+    position: absolute;
+    width: fit-content;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    /* Ensures it's on top */
+  }
+
+  .menu-container.active {
+    display: flex;
+  }
+
+  .nav {
+    flex-wrap: nowrap;
+    position: relative;
+  }
+
+  .navitems {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    /* Add spacing between menu items */
+  }
+
+  .client-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  /* Active state for hamburger menu */
+  .hamburger-menu.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+
 
   .paragraph {
     font-size: medium;
@@ -965,7 +991,7 @@ body {
   }
 
   .company_newsletter button {
-    margin-left: 40%;
+    margin-left: 35%;
   }
 
   .reason-container {
@@ -983,11 +1009,13 @@ body {
   .our-services p {
     line-height: 25px;
   }
-  
+
   .copyright p {
-    margin: 15px 0; /* Adjust margins for smaller screens */
-    text-align: center; /* Ensure text is centered */
- }
+    margin: 15px 0;
+    /* Adjust margins for smaller screens */
+    text-align: center;
+    /* Ensure text is centered */
+  }
 
 
 
@@ -995,64 +1023,166 @@ body {
 
 /* FT Loader */
 #ft-loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff; /* Adjust to match your brand */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  /* Adjust to match your brand */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
 
 .loader-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .loader-logo {
-    font-family: 'Arial', sans-serif;
-    font-size: 3rem;
-    font-weight: bold;
-    color: #3e8fee; /* Your brand color */
-    position: absolute;
-    z-index: 2; /* Ensure the logo stays on top of the spinner */
+  font-family: 'Arial', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #3e8fee;
+  /* Your brand color */
+  position: absolute;
+  z-index: 2;
+  /* Ensure the logo stays on top of the spinner */
 }
 
 .loader-spinner {
   width: 100px;
   height: 100px;
   border: 10px solid #ccc;
-  border-top: 10px solid #3e8fee; /* Spinner color */
+  border-top: 10px solid #3e8fee;
+  /* Spinner color */
   background-color: transparent;
   border-radius: 50%;
-  animation: spin 3s linear infinite; /* Spinner animation */
+  animation: spin 3s linear infinite;
+  /* Spinner animation */
   position: absolute;
-  z-index: 1; /* Ensure the spinner stays behind the logo */
-  
+  z-index: 1;
+  /* Ensure the spinner stays behind the logo */
+
   /* Box shadow to add depth */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Horizontal, vertical, blur radius, color */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  /* Horizontal, vertical, blur radius, color */
 }
 
 
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Hide loader after 3 seconds */
 #ft-loader.hidden {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s;
 }
 
 
+
+@media (min-width: 769px) and (max-width: 1279px) {
+
+
+
+  .main-header {
+    padding: 0;
+  }
+
+  .nav {
+    display: flex;
+    gap: 30px;
+    margin: 0 5%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 25px;
+  }
+
+
+  .menu-container {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    top: 60px;
+    right: 40px;
+    position: absolute;
+    width: fit-content;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    /* Ensures it's on top */
+  }
+
+  .menu-container.active {
+    display: flex;
+  }
+
+  .nav {
+    flex-wrap: nowrap;
+    position: relative;
+  }
+
+  .navitems {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    /* Add spacing between menu items */
+  }
+
+  .client-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  /* Active state for hamburger menu */
+  .hamburger-menu.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+
+
+
+}
