@@ -1,8 +1,12 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import mailtrap as mt
 import os
 
 app = Flask(__name__)
+
+# Enable CORS for the Flask app
+CORS(app)
 
 @app.route('/send_email', methods=['POST'])
 def send_email():
@@ -36,5 +40,5 @@ def send_email():
         return jsonify({"status": "error", "message": str(e)}), 500
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))  # Get the port from Render's environment variable or default to 5000
+    port = int(os.environ.get("PORT", 5000))  # Get the port from the environment variable or default to 5000
     app.run(host='0.0.0.0', port=port, debug=True)  # Bind to all interfaces and the correct port

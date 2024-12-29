@@ -668,7 +668,7 @@ a {
     display: block;
   }
 
-  .hiring_details input,select {
+  .hiring_details input,.hiring_details select {
     width: 90% !important; /* Make the inputs take full width on smaller screens */
   }
 
