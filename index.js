@@ -10,6 +10,89 @@ function closeForm() {
   document.getElementById('overlay').style.display = 'none';
 }
 
+// async function submitForm(event) {
+//   event.preventDefault();
+
+//   const nameInput = document.getElementById("name").value;
+//   const emailInput = document.getElementById("email").value;
+//   const phoneInput = document.getElementById("phone").value;
+//   const serviceInput = document.getElementById("services").value;
+//   const submitButton = document.querySelector(".submit-btn");
+//   const loader = document.getElementById("loader");
+//   const message = document.getElementById("submissionMessage");
+
+//   // Validation checks
+//   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//   const phonePattern = /^\d{10}$/;
+
+//   if (!emailPattern.test(emailInput)) {
+//     alert("Please enter a valid email address.");
+//     return;
+//   }
+
+
+
+
+//   // Disable the submit button and show the loader
+//   submitButton.disabled = true;
+//   loader.style.display = "inline-block";
+
+//   // Prepare data for Google Apps Script submission
+//   const formData = new FormData();
+//   formData.append("name", nameInput);
+//   formData.append("email", emailInput);
+//   formData.append("phone", phoneInput);
+//   formData.append("services", serviceInput);
+
+//   try {
+//     // Submit data to Google Apps Script
+//     const response = await fetch('https://script.google.com/macros/s/AKfycbzBTORG5Wwrq8VnqHsAo3c3c6zXv45UHDkNiJmJJyoseiusWdMR31RkTzt0csYc9M2RKQ/exec', {
+//       method: 'POST',
+//       body: new URLSearchParams(Object.fromEntries(formData.entries()))
+//     });
+//     const result = await response.json();
+//     console.log('Google Apps Script response:', result);
+//   } catch (error) {
+//     console.error('Error sending data to Google Apps Script:', error);
+//   }
+
+//   // Prepare email data for EmailJS
+//   const templateParams = {
+//     name: nameInput,
+//     email: emailInput,
+//     phone: phoneInput,
+//     services: serviceInput,
+//   };
+
+//   // Send email using EmailJS
+//   emailjs.send('service_gqzc16m', 'template_tpr0u9k', templateParams)
+//     .then((response) => {
+//       console.log('Email sent successfully!', response.status, response.text);
+//     }, (error) => {
+//       console.error('Failed to send email:', error);
+//       alert("There was a problem sending your email.");
+//     })
+//     .finally(() => {
+//       // Hide the loader and re-enable the submit button
+//       loader.style.display = "none";
+//       submitButton.disabled = false;
+
+//       // Show the submission message
+//       message.style.display = "block";
+
+//       // Reset the form
+//       document.getElementById("enquiry_Form").reset();
+
+//       // Hide the message after a brief delay
+//       setTimeout(() => {
+//         message.style.display = "none";
+//       }, 3000);
+
+//       // Close the form (if applicable)
+//       closeForm();
+//     });
+// }
+
 async function submitForm(event) {
   event.preventDefault();
 
@@ -30,14 +113,11 @@ async function submitForm(event) {
     return;
   }
 
-
-
-
   // Disable the submit button and show the loader
   submitButton.disabled = true;
   loader.style.display = "inline-block";
 
-  // Prepare data for Google Apps Script submission
+  // Prepare data for the backend submission
   const formData = new FormData();
   formData.append("name", nameInput);
   formData.append("email", emailInput);
@@ -45,13 +125,14 @@ async function submitForm(event) {
   formData.append("services", serviceInput);
 
   try {
-    // Submit data to Google Apps Script
-    const response = await fetch('https://script.google.com/macros/s/AKfycbzBTORG5Wwrq8VnqHsAo3c3c6zXv45UHDkNiJmJJyoseiusWdMR31RkTzt0csYc9M2RKQ/exec', {
+    // Send data to Google Apps Script
+    const googleResponse = await fetch('https://script.google.com/macros/s/AKfycbzBTORG5Wwrq8VnqHsAo3c3c6zXv45UHDkNiJmJJyoseiusWdMR31RkTzt0csYc9M2RKQ/exec', {
       method: 'POST',
       body: new URLSearchParams(Object.fromEntries(formData.entries()))
     });
-    const result = await response.json();
-    console.log('Google Apps Script response:', result);
+
+    const googleResult = await googleResponse.json();
+    console.log('Google Apps Script response:', googleResult);
   } catch (error) {
     console.error('Error sending data to Google Apps Script:', error);
   }
@@ -71,26 +152,36 @@ async function submitForm(event) {
     }, (error) => {
       console.error('Failed to send email:', error);
       alert("There was a problem sending your email.");
-    })
-    .finally(() => {
-      // Hide the loader and re-enable the submit button
-      loader.style.display = "none";
-      submitButton.disabled = false;
-
-      // Show the submission message
-      message.style.display = "block";
-
-      // Reset the form
-      document.getElementById("enquiry_Form").reset();
-
-      // Hide the message after a brief delay
-      setTimeout(() => {
-        message.style.display = "none";
-      }, 3000);
-
-      // Close the form (if applicable)
-      closeForm();
     });
+
+  // Send data to your backend API (Mailtrap)
+  try {
+    const backendResponse = await fetch('https://fourtech-api.onrender.com/send_email', {
+      method: 'POST',
+      body: formData
+    });
+
+    const backendResult = await backendResponse.json();
+    console.log('Backend response:', backendResult);
+  } catch (error) {
+    console.error('Error sending data to backend:', error);
+  }
+
+  // Re-enable submit button and hide loader
+  loader.style.display = "none";
+  submitButton.disabled = false;
+
+  // Show submission message and reset the form
+  message.style.display = "block";
+  document.getElementById("enquiry_Form").reset();
+
+  // Hide the message after 3 seconds
+  setTimeout(() => {
+    message.style.display = "none";
+  }, 3000);
+
+  // Optionally close the form if required
+  closeForm();
 }
 
 
@@ -281,6 +372,119 @@ window.addEventListener('scroll', handleScroll);
 handleScroll();
 
 
+// async function it_submission(event) {
+//   event.preventDefault();
+
+//   console.log("Form submission started.");
+
+//   // Fetch input values
+//   const firstName = document.getElementById("first_name").value.trim();
+//   const lastName = document.getElementById("last_name").value.trim();
+//   const email = document.getElementById("email_input").value.trim();
+//   const phone = document.getElementById("phone_input").value.trim();
+//   const companyName = document.getElementById("company_name").value.trim();
+//   const jobTitle = document.getElementById("job_title").value.trim();
+//   const typeOfHire = document.getElementById("hire").value.trim();
+//   const numberOfOpenings = document.getElementById("number_of_openings").value.trim();
+//   const location = document.getElementById("location").value.trim();
+//   const jobDescription = document.getElementById("job_description").value.trim();
+//   const submitButton = document.getElementById("itstaffing_submit");
+//   const loader = document.getElementById("form_loader");
+//   const message = document.getElementById("form_submissionMessage");
+  
+
+//   // Phone validation (if provided)
+//   if (phone && !/^\+?[1-9]\d{1,14}$/.test(phone)) {
+//     alert("Please enter a valid international phone number (e.g., +1234567890).");
+//     return;
+//   }
+
+
+
+//   // Disable the submit button and show the loader
+//   submitButton.disabled = true;
+//   if (loader) {
+//     loader.style.display = "inline-block";  // Show the loader
+//   }
+
+//   // Prepare data for submission
+//   const formData = new FormData();
+//   formData.append("first_name", firstName);
+//   formData.append("last_name", lastName);
+//   formData.append("email", email);
+//   formData.append("phone", phone);
+//   formData.append("company_name", companyName);
+//   formData.append("job_title", jobTitle);
+//   formData.append("type_of_hire", typeOfHire);
+//   formData.append("number_of_openings", numberOfOpenings);
+//   formData.append("location", location);
+//   formData.append("job_description", jobDescription);
+
+//   try {
+//     // Submit data to Google Apps Script
+//     const response = await fetch('https://script.google.com/macros/s/AKfycbzRgbbRMHCx4Hrd4li8v70pVAMOFCe7MZMuNeu8uAhZe7wUuAfF7CW7tQ9B70VsbTA/exec', {
+//       method: 'POST',
+//       body: new URLSearchParams(Object.fromEntries(formData.entries())),
+//     });
+//     const result = await response.json();
+//     console.log('Google Apps Script response:', result);
+//   } catch (error) {
+//     console.error('Error sending data to Google Apps Script:', error);
+//   }
+
+//   // Prepare email data for EmailJS
+//   const templateParams = {
+//     first_name: firstName,
+//     last_name: lastName,
+//     email: email,
+//     phone: phone,
+//     company_name: companyName,
+//     job_title: jobTitle,
+//     type_of_hire: typeOfHire,
+//     number_of_openings: numberOfOpenings,
+//     job_location: location,
+//     job_description: jobDescription,
+//   };
+
+//   emailjs.send('service_fq8qyb9', 'template_366j0ze', templateParams)
+//     .then((response) => {
+//       console.log('Email sent successfully!', response.status, response.text);
+//       alert("Thank you for your submission!");
+
+//     }, (error) => {
+//       console.error('Failed to send email:', error);
+//       alert("There was a problem sending your email.");
+//     })
+//     .finally(() => {
+//       // Hide loader and show message after submission
+//       if (loader) {
+//         loader.style.display = "none";  // Hide loader
+//       }
+//       submitButton.disabled = false;
+
+//       // Show submission message
+//       if (message) {
+//         message.style.display = "block";  // Show success message
+//       }
+
+//       // Reset the form after submission
+//       const form = document.getElementById("itstaffing_form");
+//       if (form) {
+//         form.reset();  // Reset form
+//       }
+
+//       // Hide the success message after 3 seconds
+//       setTimeout(() => {
+//         if (message) {
+//           message.style.display = "none";  // Hide message
+//         }
+//       }, 3000);
+
+//       // Optional: Close form if necessary
+//       closeForm();
+//     });
+// }
+
 async function it_submission(event) {
   event.preventDefault();
 
@@ -300,20 +504,17 @@ async function it_submission(event) {
   const submitButton = document.getElementById("itstaffing_submit");
   const loader = document.getElementById("form_loader");
   const message = document.getElementById("form_submissionMessage");
-  
 
   // Phone validation (if provided)
   if (phone && !/^\+?[1-9]\d{1,14}$/.test(phone)) {
-    alert("Please enter a valid international phone number (e.g., +1234567890).");
-    return;
+      alert("Please enter a valid international phone number (e.g., +1234567890).");
+      return;
   }
-
-
 
   // Disable the submit button and show the loader
   submitButton.disabled = true;
   if (loader) {
-    loader.style.display = "inline-block";  // Show the loader
+      loader.style.display = "inline-block";  // Show the loader
   }
 
   // Prepare data for submission
@@ -330,69 +531,94 @@ async function it_submission(event) {
   formData.append("job_description", jobDescription);
 
   try {
-    // Submit data to Google Apps Script
-    const response = await fetch('https://script.google.com/macros/s/AKfycbzRgbbRMHCx4Hrd4li8v70pVAMOFCe7MZMuNeu8uAhZe7wUuAfF7CW7tQ9B70VsbTA/exec', {
-      method: 'POST',
-      body: new URLSearchParams(Object.fromEntries(formData.entries())),
-    });
-    const result = await response.json();
-    console.log('Google Apps Script response:', result);
+      // Submit data to Google Apps Script
+      const response = await fetch('https://script.google.com/macros/s/AKfycbzRgbbRMHCx4Hrd4li8v70pVAMOFCe7MZMuNeu8uAhZe7wUuAfF7CW7tQ9B70VsbTA/exec', {
+          method: 'POST',
+          body: new URLSearchParams(Object.fromEntries(formData.entries())),
+      });
+      const result = await response.json();
+      console.log('Google Apps Script response:', result);
   } catch (error) {
-    console.error('Error sending data to Google Apps Script:', error);
+      console.error('Error sending data to Google Apps Script:', error);
   }
 
   // Prepare email data for EmailJS
   const templateParams = {
-    first_name: firstName,
-    last_name: lastName,
-    email: email,
-    phone: phone,
-    company_name: companyName,
-    job_title: jobTitle,
-    type_of_hire: typeOfHire,
-    number_of_openings: numberOfOpenings,
-    job_location: location,
-    job_description: jobDescription,
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      phone: phone,
+      company_name: companyName,
+      job_title: jobTitle,
+      type_of_hire: typeOfHire,
+      number_of_openings: numberOfOpenings,
+      job_location: location,
+      job_description: jobDescription,
   };
 
+  // Send email using EmailJS
   emailjs.send('service_fq8qyb9', 'template_366j0ze', templateParams)
-    .then((response) => {
-      console.log('Email sent successfully!', response.status, response.text);
-      alert("Thank you for your submission!");
+      .then((response) => {
+          console.log('Email sent successfully!', response.status, response.text);
+          alert("Thank you for your submission!");
+      }, (error) => {
+          console.error('Failed to send email:', error);
+          alert("There was a problem sending your email.");
+      });
 
-    }, (error) => {
-      console.error('Failed to send email:', error);
-      alert("There was a problem sending your email.");
-    })
-    .finally(() => {
-      // Hide loader and show message after submission
-      if (loader) {
-        loader.style.display = "none";  // Hide loader
-      }
-      submitButton.disabled = false;
+  // Send email using Mailtrap (your API should be handling the email sending in the backend)
+  try {
+      const mailtrapResponse = await fetch('https://fourtech-staffing-api.onrender.com/send_it_staffing_email', {
+          method: 'POST',
+          body: new URLSearchParams({
+              first_name: firstName,
+              last_name: lastName,
+              email: email,
+              phone: phone,
+              company_name: companyName,
+              job_title: jobTitle,
+              type_of_hire: typeOfHire,
+              number_of_openings: numberOfOpenings,
+              location: location,
+              job_description: jobDescription,
+          }),
+      });
 
-      // Show submission message
+      const mailtrapResult = await mailtrapResponse.json();
+      console.log('Mailtrap email sent:', mailtrapResult);
+  } catch (error) {
+      console.error('Error sending email with Mailtrap:', error);
+  }
+
+  // Show success message and reset form
+  if (loader) {
+      loader.style.display = "none";  // Hide loader
+  }
+  submitButton.disabled = false;
+
+  if (message) {
+      message.style.display = "block";  // Show success message
+  }
+
+  // Reset the form after submission
+  const form = document.getElementById("itstaffing_form");
+  if (form) {
+      form.reset();  // Reset form
+  }
+
+  // Hide the success message after 3 seconds
+  setTimeout(() => {
       if (message) {
-        message.style.display = "block";  // Show success message
-      }
-
-      // Reset the form after submission
-      const form = document.getElementById("itstaffing_form");
-      if (form) {
-        form.reset();  // Reset form
-      }
-
-      // Hide the success message after 3 seconds
-      setTimeout(() => {
-        if (message) {
           message.style.display = "none";  // Hide message
-        }
-      }, 3000);
+      }
+  }, 3000);
 
-      // Optional: Close form if necessary
-      closeForm();
-    });
+  // Optional: Close form if necessary
+  closeForm();
 }
+
+
+
 
 
 function toggleAnswer(index) {

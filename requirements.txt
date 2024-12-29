@@ -1,0 +1,2 @@
+Flask==2.2.2
+mailtrap==0.1.0  # or whichever package you are using for Mailtrap
