@@ -11,6 +11,16 @@
     <script src="./index.js" defer></script>
     <link rel="icon" type="image/x-icon" href="./src/images/favicon.ico"> <!-- For .ico format -->
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBPTG8Z3D7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-QBPTG8Z3D7');
+    </script>
+
 
 </head>
 
@@ -22,7 +32,8 @@
     <header class="main-header">
         <div class="nav">
             <div class="logo">
-                <a href="./index.html"><img src="./src/images/fourtech-logo.png" alt="FourTech Logo" class="logo-img"  draggable="false"/></a>
+                <a href="./index.html"><img src="./src/images/fourtech-logo.png" alt="FourTech Logo" class="logo-img"
+                        draggable="false" /></a>
             </div>
             <button class="hamburger-menu" onclick="toggleMenu()">
                 <span></span>
@@ -95,8 +106,8 @@
             </div>
 
             <div class="btn scroll-animation fade-in-down">
-               <a href="#itstaffing_form"><button>Hire Top Talent
-                    <img src="./src/images/Group 60.png" alt="Hire Top Talent"></button></a>
+                <a href="#itstaffing_form"><button>Hire Top Talent
+                        <img src="./src/images/Group 60.png" alt="Hire Top Talent"></button></a>
             </div>
         </section>
 
@@ -308,69 +319,83 @@
             <div class="itstaffing-container">
                 <div class="itstaffing-para">
                     <h3>How Four Technologies Can Help You Find the Best Employees for Your Business</h3>
-                    <p>At Four Technologies, we understand talent challenges. Our innovative staffing solutions, passion, and dedication help build skilled teams that drive your business growth and meet your staffing needs.</p>
+                    <p>At Four Technologies, we understand talent challenges. Our innovative staffing solutions,
+                        passion, and dedication help build skilled teams that drive your business growth and meet your
+                        staffing needs.</p>
 
-                    <p>Our IT staffing proposal outlines how we can address your staffing challenges and provide tailored solutions. Here's an overview of what's included:</p>
+                    <p>Our IT staffing proposal outlines how we can address your staffing challenges and provide
+                        tailored solutions. Here's an overview of what's included:</p>
 
                     <ol>
-                        <li><strong>About Four Technologies:</strong> Learn more about our company, our mission, and how we’re committed to delivering exceptional IT staffing solutions.</li>
-                        <li><strong>IT Staffing Challenges:</strong> We identify common staffing obstacles and explain how we can help you overcome them.</li>
-                        <li><strong>Our Solutions:</strong> Discover the staffing strategies and services we offer, designed to meet your specific business needs.</li>
-                        <li><strong>Benefits to Your Business:</strong> Understand how partnering with Four Technologies will help you find the best talent and drive your business forward.</li>
-                        <li><strong>Why Choose Four Technologies?</strong> Learn what sets us apart from other staffing providers and why we’re the right choice for your business.</li>
-                        <li><strong>Next Steps:</strong> Find out how to take the next step toward building your dream team with Four Technologies’ expert staffing solutions.</li>
+                        <li><strong>About Four Technologies:</strong> Learn more about our company, our mission, and how
+                            we’re committed to delivering exceptional IT staffing solutions.</li>
+                        <li><strong>IT Staffing Challenges:</strong> We identify common staffing obstacles and explain
+                            how we can help you overcome them.</li>
+                        <li><strong>Our Solutions:</strong> Discover the staffing strategies and services we offer,
+                            designed to meet your specific business needs.</li>
+                        <li><strong>Benefits to Your Business:</strong> Understand how partnering with Four Technologies
+                            will help you find the best talent and drive your business forward.</li>
+                        <li><strong>Why Choose Four Technologies?</strong> Learn what sets us apart from other staffing
+                            providers and why we’re the right choice for your business.</li>
+                        <li><strong>Next Steps:</strong> Find out how to take the next step toward building your dream
+                            team with Four Technologies’ expert staffing solutions.</li>
                     </ol>
 
-                    <p>Take the first step toward building your dream team by filling out the form. Once submitted, you’ll receive our detailed IT staffing proposal, designed to help your business thrive!</p>
+                    <p>Take the first step toward building your dream team by filling out the form. Once submitted,
+                        you’ll receive our detailed IT staffing proposal, designed to help your business thrive!</p>
 
                 </div>
-                
+
 
 
                 <div id="itstaffing_form_container">
                     <h2 class="scroll-animation fade-in-up ">Hire someone With An IT Staffing Service</h2>
-                    <form onsubmit="it_submission(event)" id="itstaffing_form"  class="scroll-animation fade-in-up ">
-                      <div class="name">
-                        <input type="text" id="first_name" name="first_name" required placeholder="First name">
-                        <input type="text" id="last_name" name="last_name" required placeholder="Last name">
-                      </div>
-                      <input type="email" id="email_input" name="email" class="input" placeholder="Email">
-                      <input type="tel" id="phone_input" name="phone" class="input" required placeholder="Enter your Phone number With country code">
-                      <input type="text" id="company_name" name="company_name" class="input" required placeholder="Company Name">
-                      <input type="text" id="job_title" name="job_title" class="input" required placeholder="Job Title">
-                      <div class="hire-form-group">
-                        <select id="hire" name="type_of_hire" required aria-placeholder="Type of Hire">
-                          <option value="" disabled selected>Type of Hire</option>
-                          <option value="Contract">Contract</option>
-                          <option value="Contract-To-Permanent">Contract-To-Permanent</option>
-                          <option value="Permanent">Permanent</option>
-                        </select>
-                      </div>
-                    <div class="hiring_details">
-                        <div class="hiring-details-form-group">
-                          <select id="number_of_openings" name="number_of_openings">
-                            <option value="" disabled selected>No of Openings</option>
-                            <option value="1 to 10">1 - 10</option>
-                            <option value="11 to 20">11 - 20</option>
-                            <option value="21 to 30">21 - 30</option>
-                            <option value="30+">30+</option>
-                          </select>
+                    <form onsubmit="it_submission(event)" id="itstaffing_form" class="scroll-animation fade-in-up ">
+                        <div class="name">
+                            <input type="text" id="first_name" name="first_name" required placeholder="First name">
+                            <input type="text" id="last_name" name="last_name" required placeholder="Last name">
                         </div>
-                        <input type="text" id="location" required placeholder="Location" name="job_location">
-                    </div>
-                      <textarea id="job_description" name="job_description" rows="6" cols="50" placeholder="Enter the job description here" required></textarea>
-                      <button type="submit" id="itstaffing_submit">Submit</button>
+                        <input type="email" id="email_input" name="email" class="input" placeholder="Email">
+                        <input type="tel" id="phone_input" name="phone" class="input" required
+                            placeholder="Enter your Phone number With country code">
+                        <input type="text" id="company_name" name="company_name" class="input" required
+                            placeholder="Company Name">
+                        <input type="text" id="job_title" name="job_title" class="input" required
+                            placeholder="Job Title">
+                        <div class="hire-form-group">
+                            <select id="hire" name="type_of_hire" required aria-placeholder="Type of Hire">
+                                <option value="" disabled selected>Type of Hire</option>
+                                <option value="Contract">Contract</option>
+                                <option value="Contract-To-Permanent">Contract-To-Permanent</option>
+                                <option value="Permanent">Permanent</option>
+                            </select>
+                        </div>
+                        <div class="hiring_details">
+                            <div class="hiring-details-form-group">
+                                <select id="number_of_openings" name="number_of_openings">
+                                    <option value="" disabled selected>No of Openings</option>
+                                    <option value="1 to 10">1 - 10</option>
+                                    <option value="11 to 20">11 - 20</option>
+                                    <option value="21 to 30">21 - 30</option>
+                                    <option value="30+">30+</option>
+                                </select>
+                            </div>
+                            <input type="text" id="location" required placeholder="Location" name="job_location">
+                        </div>
+                        <textarea id="job_description" name="job_description" rows="6" cols="50"
+                            placeholder="Enter the job description here" required></textarea>
+                        <button type="submit" id="itstaffing_submit">Submit</button>
                     </form>
                     <div id="form_loader" style="display: none; color:#3498db;">Loading...</div>
                     <!-- <div id="form_submissionMessage" style="display: none; color: green;">Thank you for your submission!</div> -->
-                  </div>
-                  
+                </div>
+
             </div>
 
         </section>
 
 
-        <section class="faq-section scroll-animation fade-in-up" >
+        <section class="faq-section scroll-animation fade-in-up">
             <h2>Frequently Asked Questions</h2>
             <div class="faq-card scroll-animation fade-in-up">
                 <div class="faq-header" onclick="toggleAnswer(0)">
@@ -378,31 +403,41 @@
                     <button class="toggle-btn">&#8594;</button>
                 </div>
                 <div class="faq-answer" id="answer0">
-                    <p>If your business is experiencing a shortage of technical expertise, struggling to manage IT projects, or needing support for digital transformation, IT staffing services can help. We assist businesses in filling key roles with highly skilled IT professionals to meet specific needs, whether it's for short-term projects or long-term growth.</p>
+                    <p>If your business is experiencing a shortage of technical expertise, struggling to manage IT
+                        projects, or needing support for digital transformation, IT staffing services can help. We
+                        assist businesses in filling key roles with highly skilled IT professionals to meet specific
+                        needs, whether it's for short-term projects or long-term growth.</p>
                 </div>
             </div>
-        
+
             <div class="faq-card scroll-animation fade-in-up ">
                 <div class="faq-header" onclick="toggleAnswer(1)">
                     <h3>What types of IT professionals can Four Technologies help me hire?</h3>
                     <button class="toggle-btn">&#8594;</button>
                 </div>
                 <div class="faq-answer" id="answer1">
-                    <p>Four Technologies offers staffing solutions for a wide range of IT roles, including software developers, system administrators, network engineers, cybersecurity experts, data analysts, and IT project managers. We work with you to understand your requirements and find the right talent to meet your specific technical needs.</p>
+                    <p>Four Technologies offers staffing solutions for a wide range of IT roles, including software
+                        developers, system administrators, network engineers, cybersecurity experts, data analysts, and
+                        IT project managers. We work with you to understand your requirements and find the right talent
+                        to meet your specific technical needs.</p>
                 </div>
             </div>
-        
+
             <div class="faq-card scroll-animation fade-in-up">
                 <div class="faq-header" onclick="toggleAnswer(2)">
                     <h3>How long does it take to find the right IT candidate for my company?</h3>
                     <button class="toggle-btn">&#8594;</button>
                 </div>
                 <div class="faq-answer" id="answer2">
-                    <p>The timeline for finding the right IT candidate depends on the role and the complexity of your requirements. On average, we can present qualified candidates within 1-2 weeks. However, more specialized roles may take longer as we ensure that we match the best talent with your needs. Our team is committed to delivering fast and efficient results while maintaining high-quality standards.</p>
+                    <p>The timeline for finding the right IT candidate depends on the role and the complexity of your
+                        requirements. On average, we can present qualified candidates within 1-2 weeks. However, more
+                        specialized roles may take longer as we ensure that we match the best talent with your needs.
+                        Our team is committed to delivering fast and efficient results while maintaining high-quality
+                        standards.</p>
                 </div>
             </div>
         </section>
-        
+
 
 
 
@@ -431,7 +466,8 @@
         <div class="footer_container scroll-animation fade-in-up">
             <div class="company_footer">
                 <div class="footer_text">
-                    <img src="./src/images/fourtech-logo-white.png" alt="Four Technologies Logo" class="footer-logo-img" draggable="false">
+                    <img src="./src/images/fourtech-logo-white.png" alt="Four Technologies Logo" class="footer-logo-img"
+                        draggable="false">
                     <p class="footer_para">Innovative Saas Empower
                         Business
                         driving Growth Agility and Seamless
@@ -499,14 +535,14 @@
     </footer>
 
 
-      <!--For sending emails -->
+    <!--For sending emails -->
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script type="text/javascript">
-    (function () {
-      emailjs.init("jUxTX0vLRos2YwVPB"); // Your EmailJS user ID
-    })();
-  </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("jUxTX0vLRos2YwVPB"); // Your EmailJS user ID
+        })();
+    </script>
 
 
 </body>

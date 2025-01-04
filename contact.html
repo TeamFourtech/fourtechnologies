@@ -10,6 +10,16 @@
     <link rel="stylesheet" href="./css/contact.css">
     <link rel="icon" type="image/x-icon" href="./src/images/favicon.ico"> <!-- For .ico format -->
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBPTG8Z3D7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-QBPTG8Z3D7');
+    </script>
+
 
 
     <script src="./index.js" defer></script>
@@ -25,7 +35,8 @@
     <header class="main-header">
         <div class="nav">
             <div class="logo">
-                <a href="./index.html"><img src="./src/images/fourtech-logo.png" alt="FourTech Logo" class="logo-img"  draggable="false"/></a>
+                <a href="./index.html"><img src="./src/images/fourtech-logo.png" alt="FourTech Logo" class="logo-img"
+                        draggable="false" /></a>
             </div>
             <button class="hamburger-menu" onclick="toggleMenu()">
                 <span></span>
@@ -93,29 +104,34 @@
             <div class="contact-container">
                 <div class="contact-text-container">
                     <h3 class="scroll-animation fade-in-up">Contact Us</h3>
-                    <p lass="scroll-animation fade-in-up">Have questions or want to learn more? Let's start a conversation</p>
-                    <p lass="scroll-animation fade-in-up">Write to us at <a href="mailto:info@fourtechnologies.in">info@fourtechnologies.in</a></p>
+                    <p lass="scroll-animation fade-in-up">Have questions or want to learn more? Let's start a
+                        conversation</p>
+                    <p lass="scroll-animation fade-in-up">Write to us at <a
+                            href="mailto:info@fourtechnologies.in">info@fourtechnologies.in</a></p>
                 </div>
-        
+
                 <div class="contact-form">
                     <h2 class="contact-title scroll-animation fade-in-up ">Get in Touch</h2>
                     <p class="contact-description scroll-animation fade-in-up">
                         Fill out the form below and we'll get back to you as soon as possible.
                     </p>
-                    
-                    <form method="POST" id="contactForm" onsubmit="contact_form_submission(event)" class="scroll-animation fade-in-up">
+
+                    <form method="POST" id="contactForm" onsubmit="contact_form_submission(event)"
+                        class="scroll-animation fade-in-up">
                         <label for="name">Your Name:</label>
                         <input type="text" id="contact_name" name="name" placeholder="Enter your name" required>
-        
+
                         <label for="contact_email">Your Email:</label>
                         <input type="email" id="contact_email" name="email" placeholder="Enter your email" required>
-        
+
                         <label for="contact_phone">Your Phone:</label>
-                        <input type="tel" id="contact_phone" name="phone" placeholder="Enter your phone number" required>
-        
+                        <input type="tel" id="contact_phone" name="phone" placeholder="Enter your phone number"
+                            required>
+
                         <label for="message">Your Message:</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
-        
+                        <textarea id="message" name="message" rows="4" placeholder="Enter your message"
+                            required></textarea>
+
                         <button type="submit" id="submitBtn">Send Message
                         </button>
 
@@ -125,7 +141,7 @@
                 </div>
             </div>
         </section>
-        
+
 
     </main>
 
@@ -134,7 +150,8 @@
         <div class="footer_container scroll-animation fade-in-up">
             <div class="company_footer">
                 <div class="footer_text">
-                    <img src="./src/images/fourtech-logo-white.png" alt="Four Technologies Logo" class="footer-logo-img" draggable="false">
+                    <img src="./src/images/fourtech-logo-white.png" alt="Four Technologies Logo" class="footer-logo-img"
+                        draggable="false">
                     <p class="footer_para">Innovative Saas Empower
                         Business
                         driving Growth Agility and Seamless
@@ -204,19 +221,19 @@
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
-      (function () {
-        emailjs.init("ShDbF1WlnMQ7zg_RN"); // Your EmailJS user ID ramfourtech@gmail.com
-      })();
+        (function () {
+            emailjs.init("ShDbF1WlnMQ7zg_RN"); // Your EmailJS user ID ramfourtech@gmail.com
+        })();
     </script>
 
-      <!--For sending emails -->
+    <!--For sending emails -->
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script type="text/javascript">
-    (function () {
-      emailjs.init("jUxTX0vLRos2YwVPB"); // Your EmailJS user ID
-    })();
-  </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("jUxTX0vLRos2YwVPB"); // Your EmailJS user ID
+        })();
+    </script>
 
 </body>
 
